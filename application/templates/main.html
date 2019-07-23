@@ -1,29 +1,40 @@
 {% extends "base.html" %}
-
 {% block content %}
 <div class="container-fluid" style="margin-top: 20px">
   <table class="table">
     <thead class="thead-light">
+      <span class="float-right">
+          <a class="btn" href="{{ url_for('to_insert') }}">Insert</a>
+      </span>
       <tr>
         <th scope="col">序号</th>
         <th scope="col">医院</th>
-        <th scope="col">病历号</th>
         <th scope="col">姓名</th>
         <th scope="col">性别</th>
         <th scope="col">出生日期</th>
         <th scope="col">入院时间</th>
+        <th scope="col">病历号</th>
+          <th scope="col">操作</th>
       </tr>
     </thead>
     <tbody>
     {% for doc in docs %}
-      <tr>
-        <th scope="row">{{ doc.序号 }}</th>
+      <tr name="{{ doc['序号'] }}">
+        <th scope="row">{{ doc['序号'] }}</th>
         <td>{{ doc['医院'] }}</td>
-        <td>{{ doc['病历号'] }}</td>
         <td>{{ doc['姓名'] }}</td>
         <td>{{ doc['性别'] }}</td>
         <td>{{ doc['出生日期'] }}</td>
         <td>{{ doc['入院时间'] }}</td>
+        <td>{{ doc['病历号'] }}</td>
+        <td>
+            <form method="post" action="{{ url_for('delete',doc_id=doc['病历号']) }}">
+                <input type="submit" value="del" onclick="return confirm('Are you sure to delete the document?')">
+            </form>
+            <span class="float-right">
+                <a class="btn" href="{{ url_for('edit', doc_id=doc['病历号']) }}">Edit</a>
+            </span>
+        </td>
       </tr>
     {% endfor %}
     </tbody>

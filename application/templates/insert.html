@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h3>Insert item</h3>
+    <a>
+    <form action="/insert" method="post">
+        <p>
+            hospital:<input type="text" name="hospital" >
+        </p>
+        <p>
+            name:<input type="text" name="name" >
+        </p>
+        <p>
+            gender:<input type="text" name="gender" >
+        </p>
+        <p>
+            bir:<input type="text" name="bir" >
+        </p>
+        <p>
+            in_time:<input type="text" name="in_time" >
+        </p>
+        <p>
+            record_id:<input type="text" name="record_id" >
+        </p>
+        <p>
+            <input value="comfirm"  type="submit">
+        </p>
+    </form>
+
+    </a>
+{% endblock %}

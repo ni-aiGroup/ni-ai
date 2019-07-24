@@ -2,16 +2,14 @@
 {% block content %}
     <h3>Edit item</h3>
     <a>
-    {% for doc in docs %}
-    <form action="{{ url_for('update', doc_id=doc['病历号']) }}"  method="post">
-        hospital<input type="text" name="hospital" required value="{{ doc['医院'] }}">
-        record_id<input type="text" name="record_id" required value="{{ doc['病历号'] }}">
-        name<input type="text" name="name" required value="{{ doc['姓名'] }}">
-        gender<input type="text" name="gender" required value="{{ doc['姓别'] }}">
-        bir<input type="text" name="bir" required value="{{ doc['出生日期'] }}">
-        in_time<input type="text" name="in_time" required value="{{ doc['入院时间'] }}">
+    <form  action="{{ url_for('update',doc_id=docs['病历号']) }}"  method="post" >
+        hospital   <input type="text" name="hospital" required value="{{ docs['医院'] }}"><br>
+        record_id   <input type="text" name="record_id" required value="{{ docs['病历号'] }}"><br>
+        name   <input type="text" name="name" required value="{{ docs['姓名'] }}"><br>
+        gender   <input type="text" name="gender" required value="{{ docs['性别'] }}"><br>
+        bir   <input type="text" name="bir" required value="{{ docs['出生日期'] }}"><br>
+        in_time   <input type="text" name="in_time" required value="{{ docs['入院时间'] }}"><br>
         <input class="btn" type="submit" name="submit" value="Update">
     </form>
-    {% endfor %}
     </a>
 {% endblock %}

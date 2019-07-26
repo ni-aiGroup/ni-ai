@@ -63,11 +63,13 @@
       </tr>
     {% endfor %}
 
-    {% for i in range(1,counts + 1)%}
-    <a href="/index/{{i}}">[第{{i}}页]</a>
-    {%endfor%}
+
     </tbody>
   </table>
+    <p align="center">{% for i in range(1,counts + 1)%}
+        <a href="/index/{{i}}" >[第{{i}}页]</a>
+    {%endfor%}
+</p>
 </div>
 
 {% endblock %}

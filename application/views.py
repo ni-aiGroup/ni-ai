@@ -13,7 +13,8 @@ def index(index=1):
             counts = counts//page
         else:
             counts = (counts//page)+1
-        documents = col.find().limit(page).skip((index-1)*page) #得到集合中所有的文档
+        documents = col.find().limit(page).skip((index-1)*page).sort('_id', -1) #得到集合中所有的文档
+        print(documents)
         docs = []
         count = ((index-1)*page) + 1
         for doc in documents:

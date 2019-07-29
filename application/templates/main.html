@@ -1,29 +1,11 @@
 {% extends "base.html" %}
-<style>
-.btn{ /* 按钮美化 */
-	width: 270px; /* 宽度 */
-	height: 40px; /* 高度 */
-	border-width: 0px; /* 边框宽度 */
-	border-radius: 3px; /* 边框半径 */
-	background: #1E90FF; /* 背景颜色 */
-	cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
-	outline: none; /* 不显示轮廓线 */
-	font-family: Microsoft YaHei; /* 设置字体 */
-	color: white; /* 字体颜色 */
-	font-size: 17px; /* 字体大小 */
-}
-.btn{ /* 鼠标移入按钮范围时改变颜色 */
-	background: #5599FF;
-}
-</style>
-
 {% block content %}
 <div class="container-fluid" style="margin-top: 20px">
   <table class="table">
     <thead class="thead-light">
 {#        <button class="btn" type="button" onclick="location.href='127.0.0.1/to_insert'">新增</button>#}
         <span class="float-right">
-          <a class="btn" href="{{ url_for('to_insert') }}" >新增</a>
+          <a class="btn btn-outline-success my-2 my-sm-0"  href="{{ url_for('to_insert') }}" >新增</a>
         </span>
 {#        <form method="post" >#}
 {#            <input type="button" value="新增" onclick="location.href='127.0.0.1/to_insert'">#}
@@ -66,10 +48,30 @@
 
     </tbody>
   </table>
-    <p align="center">{% for i in range(1,counts + 1)%}
-        <a href="/index/{{i}}" >[第{{i}}页]</a>
-    {%endfor%}
-</p>
+    <nav aria-label="Page navigation example" align="center">
+          <ul class="pagination" align="center" style="text-align: center">
+            <li class="page-item"><a class="page-link" href="/index/1">首页</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+              {% for i in range(1,counts + 1)%}
+            <li class="page-item"><a class="page-link" href="/index/{{i}}">{{ i }}</a></li>
+              {%endfor%}
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="/index/{{ counts }}">末页</a></li>
+            <form method="post" action="{{ url_for('go_to_page') }}">
+                <input type="submit" value="跳转至" style="float:left">
+                <input name="page_content" type="text" style="float:left;width:20%">
+                <a style="float:left">页</a>
+            </form>
+          </ul>
+    </nav>
 </div>
 
 {% endblock %}

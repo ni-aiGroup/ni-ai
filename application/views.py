@@ -3,7 +3,7 @@ from flask import render_template, redirect, url_for, request
 
 
 @app.route('/')
-@app.route('/index/<int:index>')
+@app.route('/index/<int:index>', methods=['POST', 'GET'])
 def index(index=1):
     try:
         page = 20
@@ -14,7 +14,7 @@ def index(index=1):
         else:
             counts = (counts//page)+1
         documents = col.find().limit(page).skip((index-1)*page).sort('_id', -1) #得到集合中所有的文档
-        print(documents)
+        # print(documents)
         docs = []
         count = ((index-1)*page) + 1
         for doc in documents:
@@ -26,6 +26,13 @@ def index(index=1):
         return render_template('error.html', message=err_msg)
 
     return render_template('main.html', docs=docs, counts=counts)
+
+
+@app.route('/go_to_page', methods=['POST', 'GET'])
+def go_to_page():
+    print(request.form['page_content'])
+    page_num = request.form['page_content']
+    return redirect('/index/'+page_num)
 
 
 @app.route('/delete/<string:doc_id>', methods=['POST', 'GET'])
@@ -77,7 +84,7 @@ def insert():
 
 @app.route('/search', methods=['POST', 'GET'])
 def search():
-    print(request.form['search_content'])
+    # print(request.form['search_content'])
 
     documents = db.data.find({"$or": [{"医院": request.form['search_content']},
                                       {"姓名": request.form['search_content']},
@@ -88,8 +95,8 @@ def search():
                                       ]})
     docs = []
     for doc in documents:
-        print(doc)
+        # print(doc)
         docs.append(doc)
-    print(docs)
+    # print(docs)
 
     return render_template('search.html', docs=docs)

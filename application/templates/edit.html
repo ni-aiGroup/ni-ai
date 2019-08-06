@@ -1,15 +1,223 @@
+<style>
+    #nav {
+    line-height:30px;
+    height:300px;
+    width:200px;
+    float:left;
+    padding:5px;
+}
+    #section {
+    width:350px;
+    float:left;
+    padding:10px;
+}
+</style>
 {% extends 'base.html' %}
 {% block content %}
-    <h3>Edit item</h3>
-    <a>
-    <form  class=""   action="{{ url_for('update',doc_id=docs['病历号']) }}"  method="post" >
-        hospital   <input type="text" name="hospital" required value="{{ docs['医院'] }}"><br>
-        record_id   <input type="text" name="record_id" required value="{{ docs['病历号'] }}"><br>
-        name   <input type="text" name="name" required value="{{ docs['姓名'] }}"><br>
-        gender   <input type="text" name="gender" required value="{{ docs['性别'] }}"><br>
-        bir   <input type="text" name="bir" required value="{{ docs['出生日期'] }}"><br>
-        in_time   <input type="text" name="in_time" required value="{{ docs['入院时间'] }}"><br>
-        <input class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit" value="Update">
-    </form>
-    </a>
+    <h3></h3>
+        <div id="nav">
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a id="info" class="nav-link" href="#">个人基本信息</a>
+                  </li>
+                  <li class="nav-item">
+                    <a id="dyjz" class="nav-link" href="#">到院就诊</a>
+                  </li>
+                  <li class="nav-item">
+                    <a id="rkxtz" class="nav-link" href="#">人口学特征</a>
+                  </li>
+                </ul>
+        </div>
+        <div id="section">
+          <form id="infoText" action="{{ url_for('update',doc_id=docs['病历号']) }}"  method="post">
+              <div class="form-group">
+                 <label for="exampleFormControlSelect1">医院</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                      <option selected>{{ docs['医院'] }}</option>
+                      <option>浙四医院</option>
+                      <option>浙一医院</option>
+                    </select>
+              </div>
+              <div class="form-group">
+                <label for="record_id">病历号</label>
+                <input type="text" class="form-control" id="record_id" required value="{{docs['病历号']}}">
+              </div>
+              <div class="form-group">
+                <label for="name">患者姓名</label>
+                <input type="text" class="form-control" id="name" required value="{{docs['患者姓名']}}">
+              </div>
+              <div class="form-group">
+                <label for="tel">联系方式</label>
+                <input type="text" class="form-control" id="tel" required value="{{docs['']}}">
+              </div>
+              <div class="form-group">
+                <label for="create_time">文件创建时间</label>
+                <input type="text" class="form-control" id="create_time" required value="{{docs['']}}">
+              </div>
+              <button type="submit" class="btn btn-primary">保存</button>
+          </form>
+
+        <div id="dyjzText">
+            <form  class=""  action=""   method="post" >
+        患者出现卒中症状时的场所<br> <select name="occur_place">
+                        <option selected></option>
+                        <option>家</option>
+                        <option>公共室外场合</option>
+                        <option>公共室内场合</option>
+                        <option>医院</option>
+                    </select>
+                    <br>
+        患者由何种途径转运至本医院<br>  <select name="way_to_hos">
+                        <option selected></option>
+                        <option>私家车</option>
+                        <option>救护车</option>
+                        <option>出租车</option>
+                        <option>其他</option>
+                    </select>
+                    <br>
+        患者到院首诊科室<br>  <input type="text" name="first_depart" required value=""><br>
+        到院日期和时间<br>   <input type="text" name="when_to_hos" required value=""><br>
+        入院时间<br>   <input type="text" name="in_hos" required value=""><br>
+        患者住院科室<br>  <input type="text" name="in_depart" required value=""><br>
+        患者出院科室<br>   <input type="text" name="out_depart" required value=""><br>
+        住院天数<br>   <input type="text" name="in_days" required value=""><br>
+        <input class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit" value="保存">
+            </form>
+        </div>
+
+        <div id="rkxtzText">
+            <form  class=""  action=""   method="post" >
+        年龄<br>   <input type="text" name="age" required value=""><br>
+        性别<br>  <select name="gender">
+                        <option selected></option>
+                        <option>男</option>
+                        <option>女</option>
+                </select>
+                    <br>
+        民族<br>  <select name="national">
+                        <option selected></option>
+                        <option value="1">汉族</option>
+                        <option value="2">蒙古族</option>
+                        <option value="3">回族</option>
+                        <option value="4">藏族</option>
+                        <option value="5">维吾尔族</option>
+                        <option value="6">苗族</option>
+                        <option value="7">彝族</option>
+                        <option value="8">壮族</option>
+                        <option value="9">布依族</option>
+                        <option value="10">朝鲜族</option>
+                        <option value="11">满族</option>
+                        <option value="12">侗族</option>
+                        <option value="13">瑶族</option>
+                        <option value="14">白族</option>
+                        <option value="15">土家族</option>
+                        <option value="16">哈尼族</option>
+                        <option value="17">哈萨克族</option>
+                        <option value="18">傣族</option>
+                        <option value="19">黎族</option>
+                        <option value="20">傈僳族</option>
+                        <option value="21">佤族</option>
+                        <option value="22">畲族</option>
+                        <option value="23">高山族</option>
+                        <option value="24">拉祜族</option>
+                        <option value="25">水族</option>
+                        <option value="26">东乡族</option>
+                        <option value="27">纳西族</option>
+                        <option value="28">景颇族</option>
+                        <option value="29">柯尔克孜族</option>
+                        <option value="30">土族</option>
+                        <option value="31">达斡尔族</option>
+                        <option value="32">仫佬族</option>
+                        <option value="33">羌族</option>
+                        <option value="34">布朗族</option>
+                        <option value="35">撒拉族</option>
+                        <option value="36">毛南族</option>
+                        <option value="37">仡佬族</option>
+                        <option value="38">锡伯族</option>
+                        <option value="39">阿昌族</option>
+                        <option value="40">普米族</option>
+                        <option value="41">塔吉克族</option>
+                        <option value="42">怒族</option>
+                        <option value="43">乌孜别克族</option>
+                        <option value="44">俄罗斯族</option>
+                        <option value="45">鄂温克族</option>
+                        <option value="46">德昂族</option>
+                        <option value="47">保安族</option>
+                        <option value="48">裕固族</option>
+                        <option value="49">京族</option>
+                        <option value="50">塔塔尔族</option>
+                        <option value="51">独龙族</option>
+                        <option value="52">鄂伦春族</option>
+                        <option value="53">赫哲族</option>
+                        <option value="54">门巴族</option>
+                        <option value="55">珞巴族</option>
+                        <option value="56">基诺族</option>
+                  </select>
+                    <br>
+        医保类型<br>  <select name="care_type">
+                        <option selected></option>
+                        <option>本地医保</option>
+                        <option>异地医保</option>
+                        <option>自费</option>
+                        <option>省直医保</option>
+                    </select>
+                    <br>
+        文化程度<br>  <select name="edu_level">
+                        <option selected></option>
+                        <option>文盲</option>
+                        <option>小学</option>
+                        <option>初中</option>
+                        <option>高中或大专</option>
+                        <option>本科及以上</option>
+                    </select>
+                    <br>
+        家庭人均月收入<br>   <input type="text" name="ave_income" required value=""><br>
+        身份证<br>   <input type="text" name="id_card" required value=""><br>
+        籍贯<br>   <input type="text" name="native_place" required value=""><br>
+        职业<br>   <input type="text" name="profession" required value=""><br>
+        婚姻<br> <select name="marriage">
+                        <option selected></option>
+                        <option>已婚</option>
+                        <option>未婚</option>
+                        <option>离异</option>
+                        <option>丧偶</option>
+                  </select>
+                    <br>
+        <input class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit" value="保存">
+        </form>
+        </div>
+        </div>
+<!--    <a>-->
+<!--    <form  class=""   action="{{ url_for('update',doc_id=docs['病历号']) }}"  method="post" >-->
+<!--        hospital   <input type="text" name="hospital" required value="{{ docs['医院'] }}"><br>-->
+<!--        record_id   <input type="text" name="record_id" required value="{{ docs['病历号'] }}"><br>-->
+<!--        name   <input type="text" name="name" required value="{{ docs['姓名'] }}"><br>-->
+<!--        gender   <input type="text" name="gender" required value="{{ docs['性别'] }}"><br>-->
+<!--        bir   <input type="text" name="bir" required value="{{ docs['出生日期'] }}"><br>-->
+<!--        in_time   <input type="text" name="in_time" required value="{{ docs['入院时间'] }}"><br>-->
+<!--        <input class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit" value="Update">-->
+<!--    </form>-->
+<!--    </a>-->
+<script src="//libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+<script>
+$(document).ready(function () {
+    $("#info").click(function () {
+        $("#infoText").toggle("slow")
+    })
+})
+$(document).ready(function () {
+    $("#dyjz").click(function () {
+        $("#dyjzText").toggle("slow")
+    })
+})
+$(document).ready(function () {
+$("#rkxtz").click(function () {
+    $("#rkxtzText").toggle("slow")
+})
+})
+$(document).ready(function () {
+    $("#dyjzText").hide()
+    $("#rkxtzText").hide()
+})
+</script>
 {% endblock %}

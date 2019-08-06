@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2f19f009-b050-4bd2-8fa4-2d9b65224377" name="Default Changelist" comment="点击ni-ai跳回主页，分页跳转">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/ni-ai.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="2f19f009-b050-4bd2-8fa4-2d9b65224377" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/templates/edit.html" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +26,11 @@
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/templates/edit.html">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="23">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -361,7 +360,7 @@
       <workItem from="1564729780057" duration="678000" />
       <workItem from="1564964830296" duration="6201000" />
       <workItem from="1565075275426" duration="414000" />
-      <workItem from="1565075713526" duration="74000" />
+      <workItem from="1565075713526" duration="357000" />
     </task>
     <task id="LOCAL-00001" summary="半成品：删除，新增已完成（明天美化），编辑写了一半">
       <created>1563886693414</created>
@@ -398,11 +397,25 @@
       <option name="project" value="LOCAL" />
       <updated>1564371714999</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="whitespace">
+      <created>1565075969679</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1565075969679</updated>
+    </task>
+    <task id="LOCAL-00007" summary="点击ni-ai跳回主页，分页跳转">
+      <created>1565076035534</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1565076035534</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78721000" />
+    <option name="totallyTimeSpent" value="79004000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -415,7 +428,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4957699" visible="true" weight="0.27970898" />
       <window_info id="Structure" order="1" sideWeight="0.5052083" side_tool="true" weight="0.24252222" />
@@ -447,6 +459,7 @@
     <MESSAGE value="半成品：删除，新增已完成（明天美化），编辑写了一半" />
     <MESSAGE value="还差美化" />
     <MESSAGE value="分页放下面，逆序展示数据" />
+    <MESSAGE value="whitespace" />
     <MESSAGE value="点击ni-ai跳回主页，分页跳转" />
     <option name="LAST_COMMIT_MESSAGE" value="点击ni-ai跳回主页，分页跳转" />
   </component>
@@ -623,7 +636,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/templates/edit.html">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

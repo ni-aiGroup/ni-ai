@@ -1,0 +1,370 @@
+<style>
+    #nav {
+    line-height:30px;
+    height:300px;
+    width:200px;
+    float:left;
+    padding:5px;
+}
+    #section {
+    width:350px;
+    float:left;
+    padding:10px;
+}
+    #section2 {
+    width:350px;
+    float: left;
+    padding:10px;
+}
+</style>
+{% extends 'base.html' %}
+{% block content %}
+    <h3></h3>
+        <div id="nav">
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a id="info" class="nav-link" >个人基本信息</a>
+                  </li>
+                  <li class="nav-item">
+                    <a id="dyjz" class="nav-link" >到院就诊</a>
+                  </li>
+                  <li class="nav-item">
+                    <a id="rkxtz" class="nav-link" >人口学特征</a>
+                  </li>
+                    <li class="nav-item">
+                    <a id="rkxtz" class="nav-link" >个人史/既往史</a>
+                  </li>
+                                        <li class="nav-item">
+                    <a id="rkxtz" class="nav-link" >脑血管病病史</a>
+                  </li>
+                    <li class="nav-item">
+                    <a id="rkxtz" class="nav-link" >本次入院诊断</a>
+                  </li>
+                    <li class="nav-item">
+                    <a id="rkxtz" class="nav-link" >入院手术</a>
+                  </li>
+                                        <li class="nav-item">
+                    <a id="rkxtz" class="nav-link" >病因分型</a>
+                  </li>
+                         <li class="nav-item">
+                    <a id="rkxtz" class="nav-link" >入院前用药病史</a>
+                  </li>
+                                             <li class="nav-item">
+                    <a id="rkxtz" class="nav-link" >发病相关时间</a>
+                  </li>
+                                                                 <li class="nav-item">
+                    <a id="rkxtz" class="nav-link" >入院时指征</a>
+                  </li>
+                               <li class="nav-item">
+                    <a id="rkxtz" class="nav-link" >初步诊断</a>
+                  </li>
+                     <li class="nav-item">
+                    <a id="rkxtz" class="nav-link" >rt-PA静脉溶栓治疗</a>
+                  </li>
+                                         <li class="nav-item">
+                    <a id="rkxtz" class="nav-link" >其他溶栓/再灌注治疗</a>
+                  </li>
+                                                            <li class="nav-item">
+                    <a id="rkxtz" class="nav-link" >住院治疗和并发症</a>
+                  </li>
+                   <li class="nav-item">
+                    <a id="rkxtz" class="nav-link" >住院检验指标</a>
+                  </li>
+                                       <li class="nav-item">
+                    <a id="rkxtz" class="nav-link" >康复训练</a>
+                  </li>
+                  <li class="nav-item">
+                    <a id="rkxtz" class="nav-link" >最终诊断</a>
+                  </li>
+                                      <li class="nav-item">
+                    <a id="rkxtz" class="nav-link" >出院时情况</a>
+                  </li>
+                                                          <li class="nav-item">
+                    <a id="rkxtz" class="nav-link" >出院带药</a>
+                  </li>
+                   <li class="nav-item">
+                    <a id="rkxtz" class="nav-link" >健康宣教</a>
+                  </li>
+                                       <li class="nav-item">
+                    <a id="rkxtz" class="nav-link" >随访</a>
+                  </li>
+                  <li class="nav-item">
+                    <a id="swybk" class="nav-link" >生物样本库</a>
+                  </li>
+                </ul>
+        </div>
+        <div id="section">
+
+        <form id="swybkText" action="{{ url_for('update',doc_id=docs['病历号']) }}"  method="post">
+              <div class="form-group">
+                 <label for="exampleFormControlSelect1">血浆样本</label>
+                    <select class="form-control" id="xuejiangSelect">
+                      <option></option>
+                      <option>有</option>
+                      <option>无</option>
+                    </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">脑脊液样本</label>
+                    <select class="form-control" id="naojiyeSelect">
+                        <option></option>
+                      <option>有</option>
+                      <option>无</option>
+                    </select>
+              </div>
+              <div class="form-group">
+                 <label for="exampleFormControlSelect1">血栓样本</label>
+                    <select class="form-control" id="xueshuanSelect">
+                        <option></option>
+                      <option>有</option>
+                      <option>无</option>
+                    </select>
+              </div>
+              <div class="form-group">
+                 <label for="exampleFormControlSelect1">脑组织样本</label>
+                    <select class="form-control" id="naozuzhiSelect">
+                        <option></option>
+                      <option id="option1">有</option>
+                      <option>无</option>
+                    </select>
+              </div>
+              <button type="submit" class="btn btn-primary">保存</button>
+          </form>
+
+          <form id="infoText" action="{{ url_for('update',doc_id=docs['病历号']) }}"  method="post">
+              <div class="form-group">
+                 <label for="exampleFormControlSelect1">医院</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                      <option selected>{{ docs['医院'] }}</option>
+                      <option>浙四医院</option>
+                      <option>浙一医院</option>
+                    </select>
+              </div>
+              <div class="form-group">
+                <label for="record_id">病历号</label>
+                <input type="text" class="form-control" id="record_id" required value="{{docs['病历号']}}">
+              </div>
+              <div class="form-group">
+                <label for="name">患者姓名</label>
+                <input type="text" class="form-control" id="name" required value="{{docs['患者姓名']}}">
+              </div>
+              <div class="form-group">
+                <label for="tel">联系方式</label>
+                <input type="text" class="form-control" id="tel" required value="{{docs['']}}">
+              </div>
+              <div class="form-group">
+                <label for="create_time">文件创建时间</label>
+                <input type="text" class="form-control" id="create_time" required value="{{docs['']}}">
+              </div>
+              <button type="submit" class="btn btn-primary">保存</button>
+          </form>
+
+        <div id="dyjzText">
+            <form  class=""  action=""   method="post" >
+        患者出现卒中症状时的场所<br> <select name="occur_place">
+                        <option selected></option>
+                        <option>家</option>
+                        <option>公共室外场合</option>
+                        <option>公共室内场合</option>
+                        <option>医院</option>
+                    </select>
+                    <br>
+        患者由何种途径转运至本医院<br>  <select name="way_to_hos">
+                        <option selected></option>
+                        <option>私家车</option>
+                        <option>救护车</option>
+                        <option>出租车</option>
+                        <option>其他</option>
+                    </select>
+                    <br>
+        患者到院首诊科室<br>  <input type="text" name="first_depart" required value=""><br>
+        到院日期和时间<br>   <input type="text" name="when_to_hos" required value=""><br>
+        入院时间<br>   <input type="text" name="in_hos" required value=""><br>
+        患者住院科室<br>  <input type="text" name="in_depart" required value=""><br>
+        患者出院科室<br>   <input type="text" name="out_depart" required value=""><br>
+        住院天数<br>   <input type="text" name="in_days" required value=""><br>
+        <input class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit" value="保存">
+            </form>
+        </div>
+
+        <div id="rkxtzText">
+            <form  class=""  action=""   method="post" >
+        年龄<br>   <input type="text" name="age" required value=""><br>
+        性别<br>  <select name="gender">
+                        <option selected></option>
+                        <option>男</option>
+                        <option>女</option>
+                </select>
+                    <br>
+        民族<br>  <select name="national">
+                        <option selected></option>
+                        <option value="1">汉族</option>
+                  </select>
+                    <br>
+        医保类型<br>  <select name="care_type">
+                        <option selected></option>
+                        <option>本地医保</option>
+                        <option>异地医保</option>
+                        <option>自费</option>
+                        <option>省直医保</option>
+                    </select>
+                    <br>
+        文化程度<br>  <select name="edu_level">
+                        <option selected></option>
+                        <option>文盲</option>
+                        <option>小学</option>
+                        <option>初中</option>
+                        <option>高中或大专</option>
+                        <option>本科及以上</option>
+                    </select>
+                    <br>
+        家庭人均月收入<br>   <input type="text" name="ave_income" required value=""><br>
+        身份证<br>   <input type="text" name="id_card" required value=""><br>
+        籍贯<br>   <input type="text" name="native_place" required value=""><br>
+        职业<br>   <input type="text" name="profession" required value=""><br>
+        婚姻<br> <select name="marriage">
+                        <option selected></option>
+                        <option>已婚</option>
+                        <option>未婚</option>
+                        <option>离异</option>
+                        <option>丧偶</option>
+                  </select>
+                    <br>
+        <input class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit" value="保存">
+        </form>
+        </div>
+        </div>
+
+        <div id="section2">
+            <form id="xuejiangText" action="{{ url_for('update',doc_id=docs['病历号']) }}"  method="post">
+              <div class="form-group">
+                <label for="record_id">血浆采集时间</label>
+                <input type="text" class="form-control" id="record_id" >
+              </div>
+              <div class="form-group">
+                <label for="record_id">血浆采集编号</label>
+                <input type="text" class="form-control" id="record_id" >
+              </div>
+              <div class="form-group">
+                <label for="record_id">血浆存储地址</label>
+                <input type="text" class="form-control" id="record_id" >
+              </div>
+              <div class="form-group">
+                <label for="record_id">血浆冻存方式</label>
+                <input type="text" class="form-control" id="record_id" >
+              </div>
+          </form>
+          <form id="naojiyeText" action="{{ url_for('update',doc_id=docs['病历号']) }}"  method="post">
+              <div class="form-group">
+                <label for="record_id">脑脊液采集时间</label>
+                <input type="text" class="form-control" id="record_id" >
+              </div>
+              <div class="form-group">
+                <label for="record_id">脑脊液采集编号</label>
+                <input type="text" class="form-control" id="record_id" >
+              </div>
+              <div class="form-group">
+                <label for="record_id">脑脊液存储地址</label>
+                <input type="text" class="form-control" id="record_id" >
+              </div>
+              <div class="form-group">
+                <label for="record_id">脑脊液冻存方式</label>
+                <input type="text" class="form-control" id="record_id" >
+              </div>
+          </form>
+          <form id="xueshuanText" action="{{ url_for('update',doc_id=docs['病历号']) }}"  method="post">
+              <div class="form-group">
+                <label for="record_id">血栓采集时间</label>
+                <input type="text" class="form-control" id="record_id" >
+              </div>
+              <div class="form-group">
+                <label for="record_id">血栓采集编号</label>
+                <input type="text" class="form-control" id="record_id" >
+              </div>
+              <div class="form-group">
+                <label for="record_id">血栓存储地址</label>
+                <input type="text" class="form-control" id="record_id" >
+              </div>
+              <div class="form-group">
+                <label for="record_id">血栓冻存方式</label>
+                <input type="text" class="form-control" id="record_id" >
+              </div>
+          </form>
+          <form id="naozuzhiText" action="{{ url_for('update',doc_id=docs['病历号']) }}"  method="post">
+              <div class="form-group">
+                <label for="record_id">脑组织采集时间</label>
+                <input type="text" class="form-control" id="record_id" >
+              </div>
+              <div class="form-group">
+                <label for="record_id">脑组织采集编号</label>
+                <input type="text" class="form-control" id="record_id" >
+              </div>
+              <div class="form-group">
+                <label for="record_id">脑组织存储地址</label>
+                <input type="text" class="form-control" id="record_id" >
+              </div>
+              <div class="form-group">
+                <label for="record_id">脑组织冻存方式</label>
+                <input type="text" class="form-control" id="record_id" >
+              </div>
+          </form>
+        </div>
+<script src="//libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+<script>
+$(document).ready(function () {
+    $("#swybk").click(function () {
+        $("#swybkText").toggle("slow")
+        $("#section2").toggle()
+    })
+})
+$(document).ready(function () {
+    $("#info").click(function () {
+        $("#infoText").toggle("slow")
+    })
+})
+$(document).ready(function () {
+    $("#dyjz").click(function () {
+        $("#dyjzText").toggle("slow")
+    })
+})
+$(document).ready(function () {
+$("#rkxtz").click(function () {
+    $("#rkxtzText").toggle("slow")
+})
+})
+$(document).ready(function () {
+    $("#dyjzText").hide()
+    $("#rkxtzText").hide()
+    $("#infoText").hide()
+    $('#xuejiangText').hide()
+    $('#naojiyeText').hide()
+    $('#xueshuanText').hide()
+    $('#naozuzhiText').hide()
+})
+
+$(document).ready(function () {
+    $("#swybkText").change(function () {
+        if($("#xuejiangSelect").val()=='有'){
+            $('#xuejiangText').show("slow")
+        }else {
+            $('#xuejiangText').fadeOut()
+        }
+        if($("#naojiyeSelect").val()=='有'){
+            $('#naojiyeText').show("slow")
+        }else {
+            $('#naojiyeText').fadeOut()
+        }
+        if($("#xueshuanSelect").val()=='有'){
+            $('#xueshuanText').show("slow")
+        }else {
+            $('#xueshuanText').fadeOut()
+        }
+        if($("#naozuzhiSelect").val()=='有'){
+            $('#naozuzhiText').show("slow")
+        }else {
+            $('#naozuzhiText').fadeOut()
+        }
+    })
+})
+</script>
+{% endblock %}

@@ -1,21 +1,21 @@
 {% extends "bootstrap/base.html" %}
-{% block title %}脑卒中数据采集系统{% endblock %}
-
+{% block title %}脑血管病二级预防系统{% endblock %}
 {% block navbar %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-sm">
-  <a class="navbar-brand" href="{{ url_for('index') }}">NI-AI</a>
+{#    <a class="navbar-brand" href="{{ url_for('index') }}">NI-AI 脑血管病二级预防系统</a>#}
+    <a class="font-weight-bold"><h5>NI-AI 脑血管病二级预防系统</h5></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-md-5">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">所有病例<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">高阶搜索<span class="sr-only">(current)</span></a>
-      </li>
+{#      <li class="nav-item active">#}
+{#        <a class="nav-link" href="#">所有病例<span class="sr-only">(current)</span></a>#}
+{#      </li>#}
+{#      <li class="nav-item active">#}
+{#        <a class="nav-link" href="#">高阶搜索<span class="sr-only">(current)</span></a>#}
+{#      </li>#}
     </ul>
     <form action="/search" method="post" class="form-inline my-2 my-lg-0  mr-auto">
       <input name="search_content" class="form-control mr-sm-2" type="search" placeholder="快速搜索文本" aria-label="快速搜索文本">
